@@ -15,4 +15,6 @@ public interface ItemService {
 
     SuccessResponse<Object> getItemsById(Integer itemId);
 
+    SuccessResponse<Object> deleteItem(Integer itemId);
+
 }

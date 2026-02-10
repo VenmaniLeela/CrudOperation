@@ -69,4 +69,13 @@ public class ItemServiceImpl implements ItemService{
         return response;
     }
 
+    @Override
+    public SuccessResponse<Object> deleteItem(Integer itemId) {
+        SuccessResponse<Object> response = new SuccessResponse<>();
+        Item item = itemRepository.findById(itemId).orElseThrow(()->new RuntimeException("Item not found"));  
+        itemRepository.delete(item);
+        response.setStatusMessage("Item deleted successfully");
+        return response;  
+    }
+
 }

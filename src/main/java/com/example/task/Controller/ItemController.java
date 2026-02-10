@@ -2,6 +2,7 @@ package com.example.task.Controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -41,6 +42,11 @@ public class ItemController {
     @GetMapping("/getItemsById")
     public SuccessResponse<Object> getItemsById(@RequestParam("itemId")Integer itemId){
         return itemService.getItemsById(itemId);
+    }
+
+    @DeleteMapping("/deleteItem")
+    public SuccessResponse<Object> deleteItem(@RequestParam("itemId")Integer itemId){
+        return itemService.deleteItem(itemId);
     }
 
 }
